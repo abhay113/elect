@@ -29,7 +29,6 @@ public class RegisterServlet extends HttpServlet {
 			Session session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
 
-			// Check if the meter number exists in the customer table using HQL
 			String hql = "FROM Customer WHERE meterNumber = :meter";
 			Query<Customer> query = session.createQuery(hql, Customer.class);
 			query.setParameter("meter", meterNumber);

@@ -1,11 +1,9 @@
 package entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "meter")
-public class Meter implements Serializable {
+public class Meter  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

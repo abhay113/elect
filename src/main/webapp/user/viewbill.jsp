@@ -1,70 +1,75 @@
+<%@ page import="org.hibernate.Session"%>
+<%@ page import="org.hibernate.query.Query"%>
+<%@ page import="entity.Bill"%>
+<%@ page import="java.util.*"%>
+<%@ page import="elect.Connect"%>
 
-<%@page import="java.sql.ResultSet"%>
+<%@ include file='unavbar.jsp'%>
+<%@ include file='../css/CSS.jsp'%>
 
-<%@page import="java.sql.*"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="Conn.Connect"%>
-<%@include file='unavbar.jsp' %>
-<%@include file='../css/CSS.jsp' %>
+<div class="container">
+	<h2>Your Bills</h2>
+	<hr>
+	<table class="table table-bordered">
+		<thead class="bg-primary">
+			<tr class="text-center">
+				<th>Bill ID</th>
+				<th>Meter Number</th>
+				<th>Month</th>
+				<th>Units</th>
+				<th>Bill Amount</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			try {
+				Session s1 = Connect.getFactory().openSession();
+				s1.beginTransaction();
+				String hql = "FROM Bill WHERE meterNumber = :meter";
+				Query<Bill> query = s1.createQuery(hql, Bill.class);
+				query.setParameter("meter", me);
 
-<%     HttpSession s = request.getSession(false);
-     String n = (String) session.getAttribute("meter");
-     try {
-          Connection conn = Connect.getConn();
-          Statement st = conn.createStatement();
+				List<Bill> bills = query.list();
 
-          ResultSet rs = st.executeQuery("select * from customer where meter = '" + n + "' ");
+				s1.getTransaction().commit();
+				s1.close();
 
-          String name = rs.getString(2);
-          String address = rs.getString(3);
-          String city = rs.getString(4);
-          String email = rs.getString(5);
-          String phone = rs.getString(6);
+				for (Bill bill : bills) {
+			%>
+			<tr class="text-center">
+				<td><%=bill.getBid()%></td>
+				<td><%=bill.getMeterNumber()%></td>
+				<td><%=bill.getMonth()%></td>
+				<td><%=bill.getUnits()%></td>
+				<td><%=bill.getBillAmount()%></td>
+				<td <%if ("Unpaid".equals(bill.getStatus())) {%>
+					style="color: red; font-weight: 600" <%}%>><%=bill.getStatus()%>
+					<%
+					if ("Unpaid".equals(bill.getStatus())) {
+					%> <br> <a href="paybill.jsp?billId=<%=bill.getBid()%>" class="btn btn-danger btn-sm">Pay
+						Now</a> <%
+ }
+ %>
+			</tr>
+			<%
+			}
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
+			%>
+		</tbody>
+	</table>
+</div>
 
-//          Statement st2 = conn.createStatement();
-//
-//          ResultSet rs2 = st2.executeQuery("select * from meter_info where meter = '" + n + "' ");
-//
-//          String location = rs2.getString(2);
-//          String type = rs2.getString(3);
-//          String phasecode = rs2.getString(4);
-//          String billtype = rs2.getString(5);
-//          String days = rs2.getString(5);
-//
-//          Statement st3 = conn.createStatement();
-//
-//          ResultSet rs3 = st3.executeQuery("select * from bill where meter = '" + n + "' ");
-//
-//          String month = rs3.getString(2);
-//          String units = rs3.getString(3);
-//          String total = rs3.getString(4);
-//          String status = rs3.getString(5);
-//
-//          Statement st4 = conn.createStatement();
-//          ResultSet rs4 = st4.executeQuery("select * from tax ");
-//          String cost = rs4.getString(1);
-//          String rent = rs4.getString(2);
-//          String service = rs4.getString(3);
-//          String service_charge = rs4.getString(4);
-//          String gst = rs4.getString(5);
-//          String swachha_bharat_cess = rs4.getString(6);
-          out.println(name);
-%>
-<table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-    <tr>
-        <td><%=  n%></td>
-        <td><%=  name%></td>
-        <td><%= address%></td>
-        <td><%= city%></td>
-        <td><%= email%></td>
-        <td><%= phone%></td>  
-    </tr>
-
-
-</table>
-
-<%               } catch (Exception e) {
-          e.printStackTrace();
-     }
-%>
+<jsp:include page="../Footer.jsp" />

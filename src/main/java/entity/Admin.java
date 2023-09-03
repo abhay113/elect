@@ -2,7 +2,6 @@ package entity;
 
 import javax.persistence.*;
 
-import lombok.Data;
 
 @Entity
 public class Admin {

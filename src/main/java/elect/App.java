@@ -2,7 +2,7 @@ package elect;
 
 import org.hibernate.*;
 
-import entity.Complaint;
+import entity.Admin;
 
 public class App {
 
@@ -13,7 +13,7 @@ public class App {
 
 	Transaction tx = s1.beginTransaction();
 
-	Complaint c = new Complaint("test", "testt");
+	Admin c = new Admin((long) 1,"admin", "admin");
 	
 	
 	s1.save(c);

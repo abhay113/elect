@@ -1,7 +1,8 @@
 <%@page import="java.sql.*"%>
 <%@include file='anavbar.jsp' %>
 <%@include file='../css/CSS.jsp' %>
-
+<title>Electronet | Meter Info</title>
+<body>
 <%
      String ameter = request.getParameter("meter");
 %>
@@ -62,3 +63,6 @@
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <jsp:include page="../Footer.jsp"/>
+
+
+</body>

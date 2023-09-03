@@ -12,12 +12,12 @@ import org.hibernate.Transaction;
 import entity.Complaint;
 import elect.Connect;
 
-@WebServlet("/AddComplaintServlet")
+@WebServlet("/complaint")
 public class AddComplaintServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String description = request.getParameter("description");
+		String username = request.getParameter("name");
+		String description = request.getParameter("desc");
 
 		Complaint complaint = new Complaint(username, description);
 
@@ -30,6 +30,8 @@ public class AddComplaintServlet extends HttpServlet {
 
 			transaction.commit();
 			session.close();
+
+			response.sendRedirect("user/uhome.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("error.jsp");

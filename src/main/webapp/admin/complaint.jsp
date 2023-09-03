@@ -35,7 +35,7 @@ th, td {
 	<h1>Recent Complaints</h1>
 	<hr>
 	<table class="table table-stripped">
-		<tr border="1" class="bg-primary">
+		<tr class="bg-primary">
 			<th>Name</th>
 			<th>Description</th>
 		</tr>

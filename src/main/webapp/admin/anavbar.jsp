@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ElectroNet | Home</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Add your custom CSS here -->
 
 <style>
 .navbar {
@@ -44,11 +48,10 @@
 	color: #0dcaf0;
 }
 
-/* Override the background color for the "Customer" and "Bill" buttons */
 .navbar .btn-primary {
-	background-color: transparent; /* Remove blue background */
-	border: none; /* Remove button border */
-	color: #fff; /* Set text color to white */
+	background-color: transparent; 
+	border: none;
+	color: #fff; 
 }
 </style>
 
@@ -78,7 +81,6 @@
 									Customer</a></li>
 							<li><a class="dropdown-item" href="viewcustomer.jsp">Customer
 									details</a></li>
-							<li><a class="dropdown-item" href="status.jsp">Status</a></li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
 						class="btn btn-primary dropdown-toggle ml-3" href="#"
@@ -87,21 +89,18 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="generatebill.jsp">Generate
 									Bill</a></li>
-							<li><a class="dropdown-item" href="paybill.jsp">Pay Bill</a></li>
+							<li><a class="dropdown-item" href="status.jsp">Status</a></li>
+
 						</ul></li>
-					<li class="nav-item ml-3"><a href="complaint.jsp" class="nav-link">Complaints</a>
-					</li>
-					<li class="nav-item ml-3"><a href="../index.jsp" class="nav-link">Log
-							Out</a></li>
+					<li class="nav-item ml-3"><a href="complaint.jsp"
+						class="nav-link">Complaints</a></li>
+					<li class="nav-item ml-3"><a href="../index.jsp"
+						class="nav-link">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

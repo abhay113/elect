@@ -3,30 +3,21 @@ package entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customer") // Replace with your actual table name
 public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	
 	private int id;
-
-	@Column(name = "meter_number")
 	private String meterNumber;
 
-	@Column(name = "name")
 	private String name;
 
-	@Column(name = "address")
 	private String address;
 
-	@Column(name = "city")
 	private String city;
-
-	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@Column(name = "email")
 	private String email;
 
 	public int getId() {

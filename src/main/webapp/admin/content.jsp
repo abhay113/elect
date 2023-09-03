@@ -178,7 +178,7 @@
 									<h5 class="card-title">Chance to win Gold</h5>
 									<p class="card-text">
 										Pay your bill using Google Pay to get a chance to win Digital
-										gold . Valid till 31th Dec 2022 <br>
+										gold . Valid till 31th Dec 2023 <br>
 										<a href="#"><small>terms and conditions*</small></a>
 									</p>
 									<a href="#" class="btn btn-outline-primary  btn-sm"> Pay
@@ -263,7 +263,7 @@
 
 			</div>
 		</section>
-		<!-- FAQ  -->
+		
 		<br> <br> <br>
 	</div>
 </div>

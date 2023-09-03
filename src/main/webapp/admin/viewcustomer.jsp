@@ -40,7 +40,7 @@ th, td {
 	<h1>All Customers</h1>
 	<hr>
 	<table class="table table-stripped">
-		<tr border="1" class="bg-primary">
+		<tr class="bg-primary">
 			<th>Meter no.</th>
 			<th>Name</th>
 			<th>Address</th>
@@ -67,7 +67,7 @@ th, td {
 		</tr>
 		<%
 		}
-		} catch (HibernateException e) {
+		} catch (Exception e) {
 		e.printStackTrace();
 		
 		}

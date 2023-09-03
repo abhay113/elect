@@ -1,87 +1,79 @@
-<%@page import="java.sql.ResultSet"%>
+<%@ page import="org.hibernate.Session" %>
+<%@ page import="org.hibernate.query.Query" %>
+<%@ page import="entity.Customer" %>
+<%@ page import="elect.Connect" %>
 
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="Conn.Connect"%>
-<%@include file='unavbar.jsp' %>
-<%@include file='../css/CSS.jsp' %>
+<%@ page import="java.util.*" %>
+<%@ include file="unavbar.jsp" %>
+<%@ include file="../css/CSS.jsp" %>
 
+
+
+<title>Electronet | MyInfo</title>
 <style>
     table, th, td {
         border: none;
         border-collapse: collapse;
         width: 500px;
     }
-    th,td{
-        width : 150px;
+    th, td {
+        width: 150px;
         height: 50px;
         text-align: center;
         font-size: larger;
     }
-
 </style>
-<title> My Info </title>
+<title>My Info</title>
 <div class="container">
-    <%HttpSession s = request.getSession(false);
-         String n = (String) session.getAttribute("meter");
-
-         try {
-              Connection conn = Connect.getConn();
-              Statement stmt = conn.createStatement();
-              ResultSet rs = stmt.executeQuery("select * from customer where meter =  '" + n + "'  ");
-
+    <% HttpSession sessiona = request.getSession(false);
+       String meter = (String) sessiona.getAttribute("meter");
+       
+       try {
+           Session hibernateSession = Connect.getFactory().openSession();
+           
+           Query<Customer> query = hibernateSession.createQuery("FROM Customer WHERE meterNumber = :meter", Customer.class);
+           query.setParameter("meter", me);
+           
+           List<Customer> customers = query.getResultList();
+           if (!customers.isEmpty()) {
+               Customer customer = customers.get(0);
     %>
     <br>
-    <h1> My Info </h1>
+    <h1>My Info</h1>
     <hr>
     <table class="table">
-        <%     if (rs.next()) {
-                  String name = rs.getString(2);
-                  String address = rs.getString(3);
-                  String city = rs.getString(4);
-                  String email = rs.getString(5);
-                  String phone = rs.getString(6);
-        %>
-        <tr >
+        <tr>
             <td class="text-warning"><b>Meter No.</b></td>
-            <td><%=n%></td>
-
+            <td><%=customer.getMeterNumber()%></td>
         </tr>
-        <tr >
-
+        <tr>
             <td class="text-warning"><b>Full Name</b></td>
-            <td><%=name%></td>
-
+            <td><%=customer.getName()%></td>
         </tr>
-        <tr >
-
-          <td class="text-warning"><b>Address</b></td>
-          
-            <td><%=address%></td>
-
+        <tr>
+            <td class="text-warning"><b>Address</b></td>
+            <td><%=customer.getAddress()%></td>
         </tr>
-        <tr >
-<td class="text-warning"><b>City</b></td>
-            <td><%=city%></td>
-
+        <tr>
+            <td class="text-warning"><b>City</b></td>
+            <td><%=customer.getCity()%></td>
         </tr>
-        <tr >
-
-          <td class="text-warning"><b>Email</b></td>
-            <td><%=email%></td>
-
+        <tr>
+            <td class="text-warning"><b>Email</b></td>
+            <td><%=customer.getEmail()%></td>
         </tr>
-        <tr >
-
-      <td class="text-warning"><b>Phone No.</b></td>
-            <td><%=phone%></td>
+        <tr>
+            <td class="text-warning"><b>Phone No.</b></td>
+            <td><%=customer.getPhoneNumber()%> </td>
         </tr>
-        <%}%>
     </table>
-    <%  } catch (Exception e) {
-              e.printStackTrace();
-         }%>
-
+    <%
+           }
+           hibernateSession.close();
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+    %>
 </div>
 <br>
 <br>
@@ -89,4 +81,4 @@
 <br>
 <br>
 <br>
-<jsp:include page="../Footer.jsp"/>
+<jsp:include page="../Footer.jsp" />

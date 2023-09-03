@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
 
 	private String meterNumber;
@@ -17,8 +16,7 @@ public class User {
 	private String username;
 
 	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+		super();	
 	}
 
 	private String password;
