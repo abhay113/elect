@@ -21,19 +21,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.5.6.Final</version> <!-- Use the latest version available -->
 		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>10.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.22</version> <!-- Use the latest version available -->
-			<scope>provided</scope>
-		</dependency>
+		
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
