@@ -3,6 +3,30 @@
 <%@include file='../css/CSS.jsp'%>
 
 <body>
+
+	<%
+	String ls = request.getParameter("success");
+	if ("true".equals(ls)) {
+	%>
+	<div class=" container alert alert-success alert-dismissible fade show"
+		role="alert">
+		Customer added Successfully !
+		<button type="button" class="btn-close" data-bs-dismiss="alert"
+			aria-label="Close"></button>
+	</div>
+	<%
+	} else if ("false".equals(ls)) {
+	%>
+
+	<div class=" container alert alert-danger alert-dismissible fade show"
+		role="alert">
+		Customer addition failed !
+		<button type="button" class="btn-close" data-bs-dismiss="alert"
+			aria-label="Close"></button>
+	</div>
+	<%
+	}
+	%>
 	<div class="container mt-5">
 		<h2 class="text-center">Add New Customer</h2>
 		<form action="/elect/AddCustomerServlet" method="post">

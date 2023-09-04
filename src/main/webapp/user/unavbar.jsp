@@ -50,8 +50,8 @@
 
 .navbar .btn-primary {
 	background-color: transparent;
-	border: none; 
-	color: #fff; 
+	border: none;
+	color: #fff;
 }
 </style>
 
@@ -59,7 +59,9 @@
 </head>
 <body>
 
-    <%String me =  (String)session.getAttribute("meterNumber"); %>
+	<%
+	String me = (String) session.getAttribute("meterNumber");
+	%>
 	<nav class="navbar navbar-expand-lg py-3 navbar-dark shadow-sm">
 		<div class="container">
 			<a href="uhome.jsp" class="navbar-brand"> <img
@@ -92,7 +94,6 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="viewbill.jsp">view
 									Bill</a></li>
-							<li><a class="dropdown-item" href="paybill.jsp">Pay Bill</a></li>
 						</ul></li>
 					<li class="nav-item ml-3"><a href="complaint.jsp"
 						class="nav-link">Complaints</a></li>

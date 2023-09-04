@@ -35,10 +35,11 @@ public class CreateBillServlet extends HttpServlet {
             session.save(bill); 
             transaction.commit();
             session.close();
-            response.sendRedirect("admin/ahome.jsp");
+            response.sendRedirect("admin/generatebill.jsp?success=true");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+
+            response.sendRedirect("admin/generatebill.jsp?success=false");
         }
     }
 }

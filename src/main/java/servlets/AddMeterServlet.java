@@ -43,11 +43,11 @@ public class AddMeterServlet extends HttpServlet {
             transaction.commit();
             session.close();
             
-            response.sendRedirect("admin/ahome.jsp");
+            response.sendRedirect("admin/addcust.jsp?success=true"); 
         } catch (Exception e) {
             e.printStackTrace();
          
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("admin/addcust.jsp?success=false");
         }
     }
 }

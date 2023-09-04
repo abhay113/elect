@@ -20,7 +20,7 @@
     }
 </script>
 
-<div class="container">
+<div class="container mt-4">
     <div class="form-container">
         <h2 class="text-center">Generate Bill</h2>
         <hr>

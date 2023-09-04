@@ -16,31 +16,39 @@ import entity.Admin;
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String username = request.getParameter("aname");
-		String password = request.getParameter("apass");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String username = request.getParameter("aname");
+        String password = request.getParameter("apass");
+        boolean loginSuccess = false;
 
-		try {
-			SessionFactory sessionFactory = Connect.getFactory();
-			Session session = sessionFactory.openSession();
+        try {
+            SessionFactory sessionFactory = Connect.getFactory();
+            Session session = sessionFactory.openSession();
 
-			List<Admin> admins = session
-					.createQuery("FROM Admin WHERE username = :username AND password = :password", Admin.class)
-					.setParameter("username", username).setParameter("password", password).list();
+            List<Admin> admins = session
+                    .createQuery("FROM Admin WHERE username = :username AND password = :password", Admin.class)
+                    .setParameter("username", username).setParameter("password", password).list();
 
-			session.close();
+            session.close();
 
-			if (!admins.isEmpty()) {
-				System.out.println("suceeess");
-				response.sendRedirect("admin/ahome.jsp");
-			} else {
+            if (!admins.isEmpty()) {
+           
+                loginSuccess = true;
+            } else {
+         
+                loginSuccess = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            loginSuccess = false;
+        }
 
-				response.sendRedirect("error.jsp");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.sendRedirect("error.jsp");
-		}
-	}
+
+        if (loginSuccess) {
+            response.sendRedirect("admin/ahome.jsp?loginSuccess=true");
+        } else {
+            response.sendRedirect("index.jsp?loginSuccess=false");
+        }
+    }
 }

@@ -7,7 +7,7 @@
 <%@ include file='unavbar.jsp'%>
 <%@ include file='../css/CSS.jsp'%>
 
-<div class="container">
+<div class="container mt-4">
 	<h2>Your Bills</h2>
 	<hr>
 	<table class="table table-bordered">
@@ -26,7 +26,7 @@
 			try {
 				Session s1 = Connect.getFactory().openSession();
 				s1.beginTransaction();
-				String hql = "FROM Bill WHERE meterNumber = :meter";
+				String hql = "FROM Bill WHERE meterNumber = :meter order by status desc";
 				Query<Bill> query = s1.createQuery(hql, Bill.class);
 				query.setParameter("meter", me);
 

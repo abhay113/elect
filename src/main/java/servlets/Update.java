@@ -45,14 +45,14 @@ public class Update extends HttpServlet {
 
 			if (rowsAffected > 0) {
 				transaction.commit();
-				response.sendRedirect("user/uhome.jsp");
+				response.sendRedirect("user/myinfo.jsp?success=true");
 			} else {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("user/myinfo.jsp?success=false");
 			}
 			session.close();
 		} catch (HibernateException e) {
 			e.printStackTrace();
-			response.sendRedirect("error.jsp");
+			response.sendRedirect("user/myinfo.jsp?success=false");
 		}
 	}
 }

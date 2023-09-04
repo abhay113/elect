@@ -13,44 +13,64 @@ select {
 </style>
 <body>
 
-<div class="container">
-	<h2>Generate Bill</h2>
-	<hr>
-	<form action="billdetails.jsp" method="post">
+	<%
+	String ls = request.getParameter("success");
+	if ("true".equals(ls)) {
+	%>
+	<div class=" container alert alert-success alert-dismissible fade show"
+		role="alert">
+		Bill Generated Successfull !
+		<button type="button" class="btn-close" data-bs-dismiss="alert"
+			aria-label="Close"></button>
+	</div>
+	<%
+}
 
-		<select style="width: 300px; display: inline; margin-right: 60px;"
-			class="form-select" aria-label="Default select example" name="meterNumber">
-			<option selected>Select Meter no</option>
-			<%
-			try {
-				Session s1 = Connect.getFactory().openSession();
-				String hql = "SELECT meterNumber FROM Customer";
-				Query<String> query = s1.createQuery(hql, String.class);
-				List<String> meterNumbers = query.list();
-				s1.close();
+if ("false".equals(ls)) {
+%>
+	<div class=" container alert alert-danger alert-dismissible fade show"
+		role="alert">
+		Bill Generation Failed !
+		<button type="button" class="btn-close" data-bs-dismiss="alert"
+			aria-label="Close"></button>
+	</div>
+	<%}%>
 
-				for (String meterNumber : meterNumbers) {
-			%>
-			<option value="<%=meterNumber%>"><%=meterNumber%></option>
-			<%
-			}
-			} catch (Exception e) {
-			e.printStackTrace();
-			}
-			%>
-		</select>
-		<button type="submit" class="btn btn-info">Add</button>
-	</form>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<jsp:include page="../Footer.jsp" />
+
+
+	<div class="container mt-4">
+		<h2>Generate Bill</h2>
+		<hr>
+		<form action="billdetails.jsp" method="post">
+
+			<select style="width: 300px; display: inline; margin-right: 60px;"
+				class="form-select" aria-label="Default select example"
+				name="meterNumber">
+				<option selected>Select Meter no</option>
+				<%
+				try {
+					Session s1 = Connect.getFactory().openSession();
+					String hql = "SELECT meterNumber FROM Customer";
+					Query<String> query = s1.createQuery(hql, String.class);
+					List<String> meterNumbers = query.list();
+					s1.close();
+
+					for (String meterNumber : meterNumbers) {
+				%>
+				<option value="<%=meterNumber%>"><%=meterNumber%></option>
+				<%
+				}
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				%>
+			</select>
+			<button type="submit" class="btn btn-info">Add</button>
+		</form>
+	</div>
+	<br>
+	<br>
+
+	<jsp:include page="../Footer.jsp" />
 </body>

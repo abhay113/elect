@@ -4,6 +4,7 @@
 <title>Login | ElectroNet</title>
 <%@include file="css/CSS.jsp"%><link
 	rel="stylesheet" href="css/login.css">
+	
 <style>
 .logo-name {
 	display: inline-block;
@@ -15,6 +16,21 @@ span {
 }
 </style>
 </head>
+
+<%
+String ls = request.getParameter("loginSuccess");
+if ("false".equals(ls)) {
+%>
+<div class=" container alert alert-danger alert-dismissible fade show"
+	role="alert">
+	Login Failed !
+	<button type="button" class="btn-close" data-bs-dismiss="alert"
+		aria-label="Close"></button>
+</div>
+<%
+}
+%>
+
 <body background="./img/bg.png">
 	<div class="loginform">
 		<div class="logo">
@@ -27,14 +43,14 @@ span {
 			<button type="button" class="btn" onclick="User()">User</button>
 		</div>
 		<form id="admin" class="inputgroup" action="Login" method="post">
-			<input type="text" class="input" placeholder=" Username" name="aname"
-				required=""> <input type="password" class="input"
-				placeholder=" Enter password" name="apass" required=""> <br>
-			<br> <input type="submit" class="btnsubp" value="LOG-IN">
+			<br><input type="text" class="input" placeholder=" Username" name="aname"
+				required=""> <br><br>
+			<input type="password" class="input" placeholder=" Enter password"
+				name="apass" required=""> <br><br> <br> <input
+				type="submit" class="btnsubp" value="LOG-IN">
 		</form>
 
-		<form id="user" class="inputgroup" action="userLogin"
-			method="post">
+		<form id="user" class="inputgroup" action="userLogin" method="post">
 			<input type="text" class="input" placeholder=" Username" name="uname"
 				required=""> <input type="password" class="input"
 				placeholder=" Enter password" name="upass" required=""> <br>

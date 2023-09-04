@@ -37,10 +37,9 @@ public class UserLoginServlet extends HttpServlet {
 				HttpSession httpSession = request.getSession();
 				httpSession.setAttribute("meterNumber", meterNumber);
 
-				response.sendRedirect("user/uhome.jsp");
+				response.sendRedirect("user/uhome.jsp?loginSuccess=true");
 			} else {
-				request.setAttribute("loginError", "Invalid credentials");
-				request.getRequestDispatcher("/elect/index.jsp").forward(request, response);
+				response.sendRedirect("index.jsp?loginSuccess=false");
 			}
 
 			session.getTransaction().commit();

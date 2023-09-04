@@ -40,13 +40,13 @@ public class RegisterServlet extends HttpServlet {
 				transaction.commit();
 				session.close();
 
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("register.jsp?success=true");
 			} else {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("register.jsp?success=false");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("error.jsp");
+			response.sendRedirect("register.jsp?success=false");
 		}
 	}
 }

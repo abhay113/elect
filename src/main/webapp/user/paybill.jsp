@@ -56,11 +56,11 @@
 	%>
 </div>
 
-<!-- Redirect to the home page after a brief delay -->
+
 <script>
 	setTimeout(function() {
 		window.location.href = "uhome.jsp";
-	}, 3000); // Redirect after 3 seconds (adjust as needed)
+	}, 3000); 
 </script>
 
 <br>

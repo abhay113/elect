@@ -10,6 +10,7 @@
 <%@ include file='../css/CSS.jsp'%>
 
 <div class="container">
+<br>
 	<h2>Bill and Customer Data</h2>
 	<hr>
 	<table class="table table-bordered">
@@ -17,7 +18,6 @@
 			<tr class="text-center">
 				<th>Bill ID</th>
 				<th>Meter Number</th>
-
 				<th>Customer Name</th>
 				<th>Month</th>
 				<th>Units</th>
@@ -32,7 +32,7 @@
 				Session s1 = Connect.getFactory().openSession();
 				s1.beginTransaction();
 
-				String hql = "SELECT b.bid, b.meterNumber, b.month, b.units, b.billAmount, b.status, c.name FROM Bill b JOIN Customer c ON b.meterNumber = c.meterNumber";
+				String hql = "SELECT b.bid, b.meterNumber, b.month, b.units, b.billAmount, b.status, c.name FROM Bill b JOIN Customer c ON b.meterNumber = c.meterNumber order by status desc";
 				Query<Object[]> query = s1.createQuery(hql);
 
 				List<Object[]> results = query.list();
