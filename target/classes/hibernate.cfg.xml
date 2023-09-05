@@ -3,11 +3,10 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
         
         
-        
 <hibernate-configuration>
 	<session-factory>
 		<!-- Database connection settings -->
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/electricity</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3333/electricity</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
