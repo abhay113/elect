@@ -1,0 +1,201 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+body
+{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.non{
+    pointer-events : none
+}
+.top
+{
+    background-color: #35c9f6;
+    display: flex;
+}
+.dlogo img
+{   width: 85px;
+    height: 85px;
+    margin-right: 80px;
+    border-radius: 50px;
+    border: 2px solid black;
+}
+.logo
+{
+    width: 100%;
+    font-size: 30px;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
+.navbar ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+.navbar ul li
+{
+    list-style-type: none;
+    margin: 15px;
+
+}
+.navbar ul li a
+{
+    text-decoration: none;
+    padding: 50px 30px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar ul li a:hover
+{
+    color:  #fe8605;
+}
+.reg
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+
+}
+
+.reg button
+{
+    padding: 10px 50px;
+    margin: 0px 30px;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+.loginform
+{
+    width: 380px;
+    height: 480px;
+    position:relative;
+    margin: 0% auto;
+    margin-top: 4%;
+    background-color:#35c9f6;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.upperbutton
+{
+    width: 220px;
+
+    margin: 0px auto;
+    margin-top: 25px;
+    position:relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+
+}
+.btn
+{
+
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+
+}
+#b1
+{
+    top: 0;
+    left: 0;
+    position:absolute;
+    width: 110px;
+    height:100%;
+    background: linear-gradient(to right,#a180e1db,#69e3f7);
+    border-radius: 20px;
+
+}
+.inputgroup
+{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+.input
+{
+    width: 100%;
+    padding: 10px 0;
+    margin: 2px 0;
+    border-bottom: 1px solid#999;
+    outline: none;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.btnsubp
+{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display:block;
+    margin:auto;
+    background: #d99269;
+    border:0;
+    outline:none;
+    border-radius: 20px;
+}
+.check-box
+{
+    margin: 30px 10px 30px 0;
+}
+span{
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+
+}
+#admin
+{
+    left: 50px;
+
+}
+#user
+{
+    left: 450px;
+
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logo-img {
+    border: 1px;
+    width: 36px;
+    margin: 5px 15px;
+    border-radius: 33px;
+}
+p {
+    font-size: large;
+    font-family: sans-serif;
+}
+.register{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px;
+}
